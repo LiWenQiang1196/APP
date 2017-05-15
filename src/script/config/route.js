@@ -1,0 +1,29 @@
+angular.module("app").config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+	$stateProvider.state("work",{
+		url:"/work",
+		templateUrl:"view/work.html",
+		controller:"workCtrl"
+	})
+	$stateProvider.state("search",{
+		url:"/search",
+		templateUrl:"view/search.html",
+		controller:"searchCtrl"
+	})
+	$stateProvider.state("mine",{
+		url:"/mine",
+		templateUrl:"view/mine.html",
+		controller:"mineCtrl"
+	})
+	$stateProvider.state("xiangqing",{
+		url:"/xiangqing/:id",
+		templateUrl:"view/xiangqing.html",
+		controller:"xiangqingCtrl"
+	})
+	$stateProvider.state("zhiwei",{
+		url:"/zhiwei/:id",
+		templateUrl:"view/zhiwei.html",
+		controller:"zhiweiCtrl"
+	})
+	
+	$urlRouterProvider.otherwise("work")
+}]) 

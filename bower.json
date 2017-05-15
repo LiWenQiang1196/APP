@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "LiWenQiang1196 <wenqiang_0211@163.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/LiWenQiang1196/app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

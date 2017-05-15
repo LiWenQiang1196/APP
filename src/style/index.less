@@ -1,0 +1,177 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;    
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+ @import "var.less";
+ @import "template/header.less";
+ @import "template/footer.less";
+ @import "template/company.less";
+ @import "template/cityList.less";
+ @import "xiangqing.less";
+ @import "zhiwei.less";
+.work,.search,.mine{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.work_content{
+    flex-grow: 1;
+    overflow: auto;
+    ul{
+        li{
+            border-bottom: 1px solid #E3E3E3;
+            position: relative;
+            dl{
+                display: flex;
+                margin-left: @base*10vw;
+                dt{
+                    img{
+                        width: @base*60vw;
+                        height: @base*60vw;
+                    }
+                }
+                dd{
+                    margin-left: @base*10vw;
+                    div:nth-child(1){
+                        margin-top:@base*9vw ;
+                        font-size: @base*14vw;
+                        font-weight: bold;
+                    }
+                    div:nth-child(2){
+                        margin-top:@base*3vw ;
+                        font-size: @base*10vw;
+                    }
+                     div:nth-child(3){
+                        margin-top:@base*3vw ;
+                        font-size: @base*10vw;
+                        color: #C2CFCC;
+                    }
+                }
+            }
+            &>div:nth-child(2){
+               position: absolute;
+               right: @base*12vw;
+               top: 50%;
+               transform: translateY(-50%);
+                color: @green;
+                font-size: @base*13vw;
+                font-weight: 700;
+            }
+        } 
+       
+    }
+}
+ #toutoutou{
+            height: @base*43vw;
+            line-height: @base*43vw;  
+            font-size: @base*12vw;
+            overflow: hidden;
+            border-bottom: 1px solid #E3E3E3;
+            span:nth-child(1){float: left;margin-left: @base*10vw;}
+            span:nth-child(2){
+                display: inline-block;
+                margin-top:@base*6vw ;
+                max-height: @base*30vw;
+                line-height:@base*30vw;
+                padding: 0 @base*15vw;
+                border-radius: 20px;
+                background-color: #f5f5f5;
+                float: right;
+                margin-right: @base*15vw;
+                color: @green;
+                }
+        }
+.active{
+    background-color:#e7f3f0 ;
+    color: #00B38A !important;
+   
+}
+.search_content,.mine_content{
+    width: 100%;
+    flex-grow:1 ;
+    overflow: auto;
+}
+.search_content{
+   .warp{
+    .tiaojian{
+        border-bottom:1px solid #e8e8e8;
+        display: flex;
+        text-align: center;
+        height: @base*40vw;
+        line-height: @base*40vw;
+        font-size: @base*14vw;
+        &>div:nth-child(1){
+            width: @base*75vw;
+            border-right:1px solid #e8e8e8;
+        }
+        &>input:nth-child(2){
+            flex: 1;
+            border: none;
+            text-indent: @base*20vw;
+            font-size: @base*14vw;
+        }
+         &>div:nth-child(3){
+            width: @base*64vw;
+        }
+    }
+    .lishi{
+        li{
+            display: flex;
+            height: @base*45vw;
+            line-height:@base*45vw;
+            font-size: @base*14vw;
+            justify-content: space-between;
+            border-bottom: 1px solid #e8e8e8;
+            background-color: #fafafa;
+            color: #666;
+            span:nth-child(1){
+                margin-left: @base*20vw;
+            }
+            span:nth-child(2){
+                margin-right: @base*20vw;
+            }
+        }
+    }
+    }
+}
+.mine_content{
+    .denglu{
+        height: @base*111vw;
+        line-height:@base*111vw ;
+        text-align: center;
+        &>span{
+            text-align: center;
+            padding: @base*15vw @base*35vw;
+           width: @base*125vw;
+           height: @base*45vw;
+           line-height:@base*45vw ;
+           color: white;
+           font-weight: 400;
+           background-color: #1fc8a1;
+        }
+    }
+    .list_content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        div{
+            margin-top:@base*10vw;
+            text-align: center;
+            width:45vw;
+            height: @base*80vw;
+            line-height: @base*80vw;
+             color: white;
+           font-weight: 400;
+           background-color: #1fc8a1;
+        }
+    }
+}

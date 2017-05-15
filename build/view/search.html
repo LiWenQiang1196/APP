@@ -1,0 +1,19 @@
+<div class="search">
+	<yu-header title="拉勾网" is-show="isShow" fade="true"></yu-header>
+	<div class="search_content">
+		<div class="warp" ng-hide="isShow">
+			<div class="tiaojian">
+				<div ng-click="qshow()">
+				{{cc?cc:"全国"}}
+			</div>
+			<input type="text" placeholder="搜索职位或公司"  ng-model="keywords"/>
+			<div ng-click="search()"><span>搜索</span></div>
+			</div>
+			<kws data="keywordslist" ng-hide="trfl"></kws>	
+		</div>
+		
+		<city-list  data="data" is-show="isShow"></city-list>
+		<yu-content data="joblist"></yu-content>
+	</div>
+	<yu-footer></yu-footer>
+</div>

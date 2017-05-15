@@ -1,0 +1,10 @@
+angular.module("app").directive("yuCompany",[function(){
+	return{
+		restrict:"E",
+		templateUrl:"view/template/company.html",
+		replace:true,
+		scope:{
+			data:"="
+		}
+	}
+}])

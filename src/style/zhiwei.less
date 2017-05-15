@@ -1,0 +1,50 @@
+.zhiwei{
+    .fen{
+        margin: @base*10vw;
+        padding-left: @base*15vw;
+        font-size: @base*14vw;
+        color: #555555;
+    }
+    .clss{
+        padding: @base*5vw @base*15vw;
+        padding-bottom: @base*25vw;
+        display: flex;
+        flex-wrap:wrap;
+        text-align: center;
+        border-bottom: 1px solid @gray;
+        div{
+            width: 25vw;
+            height:@base*40vw;
+            line-height: @base*40vw;
+            color: @green;
+            background-color:#f5f5f5 ;
+            border-radius:@base*20vw;
+            margin:@base*3vw ;
+            &.active{
+                background-color:@green;
+                color:#FFF !important;
+            }
+        }
+    }
+    .info{
+        li{
+            display: flex;
+            justify-content: space-between;
+            padding: @base*10vw @base*15vw;
+            border-bottom: 1px solid @gray;
+            &>div:nth-child(1){
+                flex: 1;
+                &>div:nth-child(2){
+                    font-size: @base*10vw;
+                    margin-top: @base*5vw;
+                    color: #888888;
+                }
+            }
+            &>div:nth-child(2){
+                width: @base*70vw;
+                color: @green;
+                font-weight: 700;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+
+	<div class="work_content">
+		<ul>			
+			<li ng-repeat="x in data" ui-sref="xiangqing({id:x.id})">
+				<dl>
+					<dt><img src="image/CgYXBlTUXI-AC08_AACIkHlny3Y866.jpg"/></dt>
+					<dd>
+						<div>{{x.companyName}}</div>
+						<div>测试[{{x.industryName}}]</div>
+						<div>{{x.date}}</div>
+					</dd>
+					
+				</dl>
+				<div>{{x.salaryName}}</div>
+			</li>
+		</ul>
+	</div>

@@ -1,0 +1,10 @@
+angular.module("app").directive("yuContent",[function(){
+	return{
+		restrict:"E",
+		templateUrl:"view/template/work_content.html",
+		replace:true,
+		scope:{
+			data:"="
+		}
+	}
+}])

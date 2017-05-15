@@ -1,0 +1,19 @@
+<div class="zhiwei">
+	<yu-header title="公司职位" is-show="true"></yu-header>
+	<yu-company data="data"></yu-company>
+	<p class="fen">职位分类</p>
+	<div class="clss">
+		<div ng-class="{active:$index==index}" ng-repeat="r in data.positionClass" ng-click="change($index)">{{r.name}}</div>
+	</div>
+	<ul class="info">
+		<li ng-repeat="li in ll">
+			<div>
+				<div>{{li.name}}</div>
+				<div>{{li.createdDate}}</div>
+			</div>
+			<div>
+				{{li.salary}}
+			</div>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,20 @@
+angular.module("app").directive("kws",[function(){
+	return{
+		restrict:"E",
+		templateUrl:"view/template/kws.html",
+		replace:true,
+		scope:{
+			data:"="
+		},
+		controller:["$scope",function($scope){
+			$scope.removekeywords=function(num){
+				console.log(num)
+				$scope.$emit("removekeywords",num)
+			}
+			$scope.odsearch=function(keywords){
+				$scope.$emit("odsearch",keywords)
+			}
+		}]
+		
+	}
+}])

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="angular.min.js"></script>
+    <script src="angular-animate/angular-animate.js"></script>
+    <title>Document</title>
+    <style>
+        .fade.ng-enter {
+            transition: 0.5s linear all;
+            opacity: 0;
+        }
+        /* The finishing CSS styles for the enter animation */
+
+        .fade.ng-enter.ng-enter-active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body ng-app="app">
+    <div ng-if="bool" class="fade">
+        Fade me in out123123
+    </div>
+    <button ng-click="bool=true">Fade In!</button>
+    <button ng-click="bool=false">Fade Out!</button>
+    <script>
+        var app = angular.module('app', ['ngAnimate']);
+    </script>
+</body>
+
+</html>
