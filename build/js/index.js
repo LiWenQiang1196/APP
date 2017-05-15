@@ -1,4 +1,17 @@
 angular.module("app",["ui.router","validation","validation.rule"])
+angular.module("app").controller("dengluCtrl",["$scope","$state",function($scope,$state){
+	$scope.next=function(){
+		localStorage.setItem("userid",1)
+		$state.go("mine1")
+	}
+}])
+angular.module("app").controller("mine1Ctrl",["$scope","$state",function($scope,$state){
+	$scope.removuserid=function(){
+		console.log(123)
+		localStorage.removeItem("userid")
+		$state.go("mine")
+	}
+}])
 angular.module("app").controller("mineCtrl",["$scope",function($scope){
 	
 }])
@@ -96,6 +109,29 @@ angular.module("app").controller("zhiweiCtrl",["xiangqing_content_service","$sco
 		$scope.change(0)
 	})
 }])
+angular.module('app').config(['$validationProvider', function($validationProvider) {
+    var expression = {
+        phone: /^(1[3|5|7|8]{1}\d{9})$/,
+        password: function(str) {
+            str = str + '';
+            return str.length >= 6
+        }
+    };
+
+
+    var validMsg = {
+        phone: {
+            error: '请输入合法的手机号',
+            success: ''
+        },
+        password: {
+            error: '密码不能少于6位',
+            success: ''
+        }
+    };
+    $validationProvider.setExpression(expression) // set expression
+        .setDefaultMsg(validMsg);
+}])
 angular.module("app").config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
 	$stateProvider.state("work",{
 		url:"/work",
@@ -112,6 +148,11 @@ angular.module("app").config(["$stateProvider","$urlRouterProvider",function($st
 		templateUrl:"view/mine.html",
 		controller:"mineCtrl"
 	})
+	$stateProvider.state("mine1",{
+		url:"/mine1",
+		templateUrl:"view/mine1.html",
+		controller:"mine1Ctrl"
+	})
 	$stateProvider.state("xiangqing",{
 		url:"/xiangqing/:id",
 		templateUrl:"view/xiangqing.html",
@@ -122,9 +163,15 @@ angular.module("app").config(["$stateProvider","$urlRouterProvider",function($st
 		templateUrl:"view/zhiwei.html",
 		controller:"zhiweiCtrl"
 	})
+	$stateProvider.state("denglu",{
+		url:"/denglu",
+		templateUrl:"view/denglu.html",
+		controller:"dengluCtrl"
+	})
 	
 	$urlRouterProvider.otherwise("work")
 }]) 
+
 angular.module("app").directive("cityList",[function(){
 	return{
 		restrict:"E",
@@ -165,8 +212,16 @@ angular.module("app").directive("yuContent",[function(){
 angular.module("app").directive("yuFooter",[function(){
 	return{
 		restrict:"E",
-		templateUrl:"view/template/footer.html"
+		templateUrl:"view/template/footer.html",
+		replacet:true,
+		controller:["$scope",function($scope){
+		$scope.uzi=localStorage.getItem("userid")
+		console.log($scope.uzi)
+	}]
+		
 	}
+	
+	
 }])
 angular.module("app").directive("yuHeader",[function(){
 	return{

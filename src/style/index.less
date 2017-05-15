@@ -16,6 +16,7 @@ body,html{
  @import "template/cityList.less";
  @import "xiangqing.less";
  @import "zhiwei.less";
+ @import "denglu.less";
 .work,.search,.mine{
     display: flex;
     flex-direction: column;
@@ -144,11 +145,12 @@ body,html{
     }
 }
 .mine_content{
-    .denglu{
+    .deng{
         height: @base*111vw;
         line-height:@base*111vw ;
         text-align: center;
         &>span{
+            border-radius: @base*5vw;
             text-align: center;
             padding: @base*15vw @base*35vw;
            width: @base*125vw;
@@ -173,5 +175,16 @@ body,html{
            font-weight: 400;
            background-color: #1fc8a1;
         }
+    }
+}
+.mine{
+    .logout{
+       margin-top:@base*30vw ;
+       background-color: #1fc8a1;
+       color:white;
+       padding:@base*8vw 0;
+       border: none;
+       width:95.5vw ;
+       margin-left:@base*8vw ;
     }
 }

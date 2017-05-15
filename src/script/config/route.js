@@ -14,6 +14,11 @@ angular.module("app").config(["$stateProvider","$urlRouterProvider",function($st
 		templateUrl:"view/mine.html",
 		controller:"mineCtrl"
 	})
+	$stateProvider.state("mine1",{
+		url:"/mine1",
+		templateUrl:"view/mine1.html",
+		controller:"mine1Ctrl"
+	})
 	$stateProvider.state("xiangqing",{
 		url:"/xiangqing/:id",
 		templateUrl:"view/xiangqing.html",
@@ -23,6 +28,11 @@ angular.module("app").config(["$stateProvider","$urlRouterProvider",function($st
 		url:"/zhiwei/:id",
 		templateUrl:"view/zhiwei.html",
 		controller:"zhiweiCtrl"
+	})
+	$stateProvider.state("denglu",{
+		url:"/denglu",
+		templateUrl:"view/denglu.html",
+		controller:"dengluCtrl"
 	})
 	
 	$urlRouterProvider.otherwise("work")

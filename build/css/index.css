@@ -184,6 +184,55 @@ html {
   color: #00b38a;
   font-weight: 700;
 }
+.denglu {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(135deg, #029253, #00887b);
+  text-align: center;
+}
+.denglu .user {
+  text-indent: 2.80112045vw;
+  border: 1px solid #e0e0e0;
+  margin-top: 8.40336134vw;
+  padding: 4.20168067vw 0;
+  width: 85vw;
+  border-radius: 1.40056022vw 1.40056022vw 0 0;
+}
+.denglu .pssw {
+  text-indent: 2.80112045vw;
+  border: 1px solid #e0e0e0;
+  padding: 4.20168067vw 0;
+  width: 85vw;
+  border-radius: 0 0 1.40056022vw 1.40056022vw;
+}
+.denglu .btn-sbmit {
+  margin-top: 7.00280112vw;
+  border: none;
+  padding: 2.80112045vw 0;
+  width: 85vw;
+  color: white;
+  font-size: 5.6022409vw;
+  border-radius: 1.40056022vw;
+  background-color: #0ac599;
+}
+.denglu .nohove {
+  margin-top: 7.00280112vw;
+  text-align: left;
+  text-indent: 7vw;
+  font-size: 2.80112045vw;
+  color: #45e3be;
+}
+.denglu .btn-register {
+  text-align: center;
+  width: 85vw;
+  font-size: 3.92156863vw;
+  color: #45e3be;
+  border: 1px solid #45e3be;
+  border-radius: 1.40056022vw;
+  margin-top: 1.40056022vw;
+  margin-left: 7vw ;
+  padding: 2.80112045vw 0;
+}
 .work,
 .search,
 .mine {
@@ -305,12 +354,13 @@ html {
 .search_content .warp .lishi li span:nth-child(2) {
   margin-right: 5.6022409vw;
 }
-.mine_content .denglu {
+.mine_content .deng {
   height: 31.09243697vw;
   line-height: 31.09243697vw;
   text-align: center;
 }
-.mine_content .denglu > span {
+.mine_content .deng > span {
+  border-radius: 1.40056022vw;
   text-align: center;
   padding: 4.20168067vw 9.80392157vw;
   width: 35.0140056vw;
@@ -334,4 +384,13 @@ html {
   color: white;
   font-weight: 400;
   background-color: #1fc8a1;
+}
+.mine .logout {
+  margin-top: 8.40336134vw;
+  background-color: #1fc8a1;
+  color: white;
+  padding: 2.24089636vw 0;
+  border: none;
+  width: 95.5vw ;
+  margin-left: 2.24089636vw;
 }

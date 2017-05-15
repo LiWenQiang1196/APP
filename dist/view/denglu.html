@@ -1,3 +1,12 @@
-<div>
-	denglu 
+<div class="denglu">
+	<form name="form">
+		<input type="text" name="required" placeholder="已验证手机/邮箱" / class="user" required-error-message='用户名必填'  ng-model="user.name"  validator="phone"><br />
+		<span class="validation-invalid"></span>
+		
+        <input type="text" placeholder="密码" name="password" ng-model="user.password" validator="password" class="pssw">
+		 <span class="validation-invalid"></span>
+		<input type="button" value="登陆"/ class="btn-sbmit" ng-click="next()" validation-submit="form">
+		<p class="nohove">还没有账号？</p>
+		<div  class="btn-register">注册</div>
+	</form>
 </div>
