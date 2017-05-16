@@ -1,114 +1,4 @@
 angular.module("app",["ui.router","validation","validation.rule"])
-angular.module("app").controller("dengluCtrl",["$scope","$state",function($scope,$state){
-	$scope.next=function(){
-		localStorage.setItem("userid",1)
-		$state.go("mine1")
-	}
-}])
-angular.module("app").controller("mine1Ctrl",["$scope","$state",function($scope,$state){
-	$scope.removuserid=function(){
-		console.log(123)
-		localStorage.removeItem("userid")
-		$state.go("mine")
-	}
-}])
-angular.module("app").controller("mineCtrl",["$scope",function($scope){
-	
-}])
-angular.module("app").controller("searchCtrl",["$filter","work_content_service","keywords_service","cityList_service","$scope",function($filter,work_content_service,keywords_service,cityList_service,$scope){
-	cityList_service.all().then(function(data){
-		$scope.data=data
-	})
-	$scope.keywordslist=keywords_service.get("keywords")
-	console.log($scope.keywordslist)
-	
-	
-	
-	$scope.qshow=function(){
-		$scope.isShow=true;
-	}
-	
-	
-	$scope.$on("cityid",function(event,num){
-		cityList_service.oneId(num).then(function(data){
-			$scope.cc=data.name;
-			$scope.search();
-			
-		})
-	})
-	
-	$scope.search=function(){
-		if(!$scope.keywords){
-			return
-		}
-		$scope.trfl=true;
-		var keywords=keywords_service.get("keywords")
-		keywords.unshift($scope.keywords)
-		console.log($scope.keywords)
-		keywords_service.set("keywords",keywords)
-		
-		work_content_service.all().then(function(data){
-			var options={city:$scope.cc,keywords:$scope.keywords}
-			console.log($scope.cc,15644)
-			var jobs=$filter("jobfilter")(data,options)
-			
-			if(jobs.length==0){
-				$scope.joblist=[];
-			}else{
-				$scope.joblist=jobs
-			}
-		})
-		
-		
-	}
-	
-	$scope.$on("removekeywords",function(event,num){
-		console.log(num,"fff")
-		$scope.keywordslist.splice(num,1)
-		keywords_service.set("keywords",$scope.keywordslist)
-	})
-	
-	//快速查询
-	$scope.$on("odsearch",function(event,keywords){
-		console.log(keywords,14141)
-		$scope.keywords=keywords
-		$scope.search()
-	})
-	
-	
-	
-	
-}])
-angular.module("app").controller("workCtrl",["$http","$scope","work_content_service",function($http,$scope,work_content_service){
-	work_content_service.all().then(function(data){
-		$scope.list=data
-	})
-}])
-angular.module("app").controller("xiangqingCtrl",["xiangqing_content_service","work_content_service","$scope","$state",function(xiangqing_content_service,work_content_service,$scope,$state){
-	var id=$state.params.id
-	work_content_service.oneId(id).then(function(data){
-		$scope.dtaa=data;
-		companyId=data.companyId;
-	xiangqing_content_service.oneId(companyId).then(function(data){
-			$scope.com=data
-		})
-	})
-}])
-angular.module("app").controller("zhiweiCtrl",["xiangqing_content_service","$scope","$state",function(xiangqing_content_service,$scope,$state){
-	var id=$state.params.id
-	console.log(id)
-	xiangqing_content_service.oneId(id).then(function(data){
-		$scope.data=data
-		console.log($scope.data)
-		$scope.index=0;
-		$scope.change=function(index){
-			$scope.index=index;
-			$scope.ll=$scope.data.positionClass[index].positionList;
-			
-		}
-		$scope.change(0)
-	})
-}])
 angular.module('app').config(['$validationProvider', function($validationProvider) {
     var expression = {
         phone: /^(1[3|5|7|8]{1}\d{9})$/,
@@ -172,6 +62,130 @@ angular.module("app").config(["$stateProvider","$urlRouterProvider",function($st
 	$urlRouterProvider.otherwise("work")
 }]) 
 
+angular.module("app").controller("dengluCtrl",["$scope","$state",function($scope,$state){
+	$scope.next=function(){
+		localStorage.setItem("userid",1)
+		$state.go("mine1")
+	}
+}])
+angular.module("app").controller("mine1Ctrl",["$scope","$state",function($scope,$state){
+	$scope.removuserid=function(){
+		localStorage.removeItem("userid")
+		$state.go("mine")
+	}
+}])
+angular.module("app").controller("mineCtrl",["$scope",function($scope){
+	
+}])
+angular.module("app").controller("searchCtrl",["$filter","work_content_service","keywords_service","cityList_service","$scope",function($filter,work_content_service,keywords_service,cityList_service,$scope){
+	cityList_service.all().then(function(data){
+		$scope.data=data
+	})
+	$scope.keywordslist=keywords_service.get("keywords")
+	
+	
+	$scope.qshow=function(){
+		$scope.isShow=true;
+	}
+	
+	
+	$scope.$on("cityid",function(event,num){
+		cityList_service.oneId(num).then(function(data){
+			$scope.cc=data.name;
+			$scope.search();
+			
+		})
+	})
+	
+	$scope.search=function(){
+		if(!$scope.keywords){
+			return
+		}
+		$scope.trfl=true;
+		var keywords=keywords_service.get("keywords")
+		keywords.unshift($scope.keywords)
+		console.log($scope.keywords)
+		keywords_service.set("keywords",keywords)
+		
+		work_content_service.all().then(function(data){
+			var options={city:$scope.cc,keywords:$scope.keywords}
+			var jobs=$filter("jobfilter")(data,options)
+			
+			if(jobs.length==0){
+				$scope.joblist=[];
+			}else{
+				$scope.joblist=jobs
+			}
+		})
+		
+		
+	}
+	
+	$scope.$on("removekeywords",function(event,num){
+		$scope.keywordslist.splice(num,1)
+		keywords_service.set("keywords",$scope.keywordslist)
+	})
+	
+	//快速查询
+	$scope.$on("odsearch",function(event,keywords){
+		$scope.keywords=keywords
+		$scope.search()
+	})
+	
+	
+	
+	
+}])
+angular.module("app").controller("workCtrl",["$http","$scope","work_content_service",function($http,$scope,work_content_service){
+	work_content_service.all().then(function(data){
+		$scope.list=data
+	})
+}])
+angular.module("app").controller("xiangqingCtrl",["xiangqing_content_service","work_content_service","$scope","$state",function(xiangqing_content_service,work_content_service,$scope,$state){
+	var id=$state.params.id
+	work_content_service.oneId(id).then(function(data){
+		$scope.dtaa=data;
+		companyId=data.companyId;
+	xiangqing_content_service.oneId(companyId).then(function(data){
+			$scope.com=data
+		})
+	})
+}])
+angular.module("app").controller("zhiweiCtrl",["xiangqing_content_service","$scope","$state",function(xiangqing_content_service,$scope,$state){
+	var id=$state.params.id
+	xiangqing_content_service.oneId(id).then(function(data){
+		$scope.data=data
+		$scope.index=0;
+		$scope.change=function(index){
+			$scope.index=index;
+			$scope.ll=$scope.data.positionClass[index].positionList;
+			
+		}
+		$scope.change(0)
+	})
+}])
+angular.module("app").filter("jobfilter",function(){
+	return function(data,options){
+		var result=[]
+		for (var i=0;i<data.length;i++) {
+			var item=data[i]
+			var flag=new
+			RegExp(options.keywords).test(item.companyName) || new 
+			RegExp(options.keywords).test(item.job)
+			if(!options.city){
+				if(flag){
+				result.push(item)
+				}
+			}else{
+				if(options.city==item.cityName && flag){
+					result.push(item)
+				}
+			}
+			
+		}
+		return result
+	}
+})
 angular.module("app").directive("cityList",[function(){
 	return{
 		restrict:"E",
@@ -216,7 +230,6 @@ angular.module("app").directive("yuFooter",[function(){
 		replacet:true,
 		controller:["$scope",function($scope){
 		$scope.uzi=localStorage.getItem("userid")
-		console.log($scope.uzi)
 	}]
 		
 	}
@@ -254,7 +267,6 @@ angular.module("app").directive("kws",[function(){
 		},
 		controller:["$scope",function($scope){
 			$scope.removekeywords=function(num){
-				console.log(num)
 				$scope.$emit("removekeywords",num)
 			}
 			$scope.odsearch=function(keywords){
@@ -264,28 +276,6 @@ angular.module("app").directive("kws",[function(){
 		
 	}
 }])
-angular.module("app").filter("jobfilter",function(){
-	return function(data,options){
-		var result=[]
-		for (var i=0;i<data.length;i++) {
-			var item=data[i]
-			var flag=new
-			RegExp(options.keywords).test(item.companyName) || new 
-			RegExp(options.keywords).test(item.job)
-			if(!options.city){
-				if(flag){
-				result.push(item)
-				}
-			}else{
-				if(options.city==item.cityName && flag){
-					result.push(item)
-				}
-			}
-			
-		}
-		return result
-	}
-})
 angular.module("app").service("xiangqing_content_service",["$http",function($http){
 			this.all=function(){
 				return $http({

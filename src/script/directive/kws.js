@@ -8,7 +8,6 @@ angular.module("app").directive("kws",[function(){
 		},
 		controller:["$scope",function($scope){
 			$scope.removekeywords=function(num){
-				console.log(num)
 				$scope.$emit("removekeywords",num)
 			}
 			$scope.odsearch=function(keywords){

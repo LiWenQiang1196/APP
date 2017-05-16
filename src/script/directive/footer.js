@@ -5,7 +5,6 @@ angular.module("app").directive("yuFooter",[function(){
 		replacet:true,
 		controller:["$scope",function($scope){
 		$scope.uzi=localStorage.getItem("userid")
-		console.log($scope.uzi)
 	}]
 		
 	}

@@ -3,8 +3,6 @@ angular.module("app").controller("searchCtrl",["$filter","work_content_service",
 		$scope.data=data
 	})
 	$scope.keywordslist=keywords_service.get("keywords")
-	console.log($scope.keywordslist)
-	
 	
 	
 	$scope.qshow=function(){
@@ -32,7 +30,6 @@ angular.module("app").controller("searchCtrl",["$filter","work_content_service",
 		
 		work_content_service.all().then(function(data){
 			var options={city:$scope.cc,keywords:$scope.keywords}
-			console.log($scope.cc,15644)
 			var jobs=$filter("jobfilter")(data,options)
 			
 			if(jobs.length==0){
@@ -46,14 +43,12 @@ angular.module("app").controller("searchCtrl",["$filter","work_content_service",
 	}
 	
 	$scope.$on("removekeywords",function(event,num){
-		console.log(num,"fff")
 		$scope.keywordslist.splice(num,1)
 		keywords_service.set("keywords",$scope.keywordslist)
 	})
 	
 	//快速查询
 	$scope.$on("odsearch",function(event,keywords){
-		console.log(keywords,14141)
 		$scope.keywords=keywords
 		$scope.search()
 	})
